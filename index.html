@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sucuri</title>
+    <title>Your Mix</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
 		* {
  			box-sizing: border-box;
 		}
 		.group {
-		  
+			float: left;
+			width: 20%;
+			align-items: center;
 		}
 		.comanda {
 		  float: right;
@@ -16,18 +18,48 @@
 	  </style>
   </head>
   <body>
-	<div class="group" style="background-image: url('fructe.png');">
-		<input id="Portocale" type="image" />
-	</div>
-	<div class="group" style="background-image: url('legume.png');">
-		<input id="Patrunjel" type="image" />
+	<div>
+		<div class="group" style="background-image: url('fructe.png');">
+			<table align="center">
+				<tr><td>
+					<input id="Portocale" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Mar" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Banane" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Lamaie" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Lime" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Kiwi" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Ananas" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Cocos" type="image" />
+				</td></tr>
+				<tr><td>
+					<input id="Grapefruit" type="image" />
+				</td></tr>
+			</table>
+		
+		</div>
+		<div class="group" style="background-image: url('legume.png');">
+			<input id="Patrunjel" type="image" />
+		</div>
 	</div>
 	<div>
-	  <img src=".png">
 	  <img src="verdeturi.png">
 	  <img src="specials.png">
+
   <div class="comanda" align="center">
-	<input id="gref" type="image" />
 	<input id="banana" type="image" width="70" height="65" />
 	<input id="x" src="x.png" onclick="remove_fruit()" type="image" width="70" height="65" />
 	<br>
@@ -109,15 +141,29 @@
 		}
 
 		// img, fill, amount, price
+		var Portocale = ["Portocale.png", 'green', 100, 3, () => add_fruit_param(Portocale) ];
+		var Mar = ["Mar.png", 'green', 100, 3, () => add_fruit_param(Mar) ];
+		var Banane = ["Banane.png", 'orange', 100, 3, () => add_fruit_param(Banane) ];
+		var Lamaie = ["Lamaie.png", 'orange', 100, 3, () => add_fruit_param(Lamaie) ];
+		var Lime = ["Lime.png", 'orange', 100, 3, () => add_fruit_param(Lime) ];
+		var Kiwi = ["Kiwi.png", 'orange', 100, 3, () => add_fruit_param(Kiwi) ];
+		var Ananas = ["Ananas.png", 'orange', 100, 3, () => add_fruit_param(Ananas) ];
+		var Cocos = ["Cocos.png", 'orange', 100, 3, () => add_fruit_param(Cocos) ];
+		var Grapefruit = ["Grapefruit.png", '#e65f47', 100, 3, () => add_fruit_param(Grapefruit) ];
+
+		make_button("Portocale");
+		make_button("Mar");
+		make_button("Banane");
+		make_button("Lamaie");
+		make_button("Lime");
+		make_button("Kiwi");
+		make_button("Ananas");
+		make_button("Cocos");
+		make_button("Grapefruit");
+
 		var Patrunjel = ["Patrunjel.png", 'green', 20, 2, () => add_fruit_param(Patrunjel) ];
-		var Portocale = ["Portocale.png", 'orange', 100, 3, () => add_fruit_param(Portocale) ];
-		var gref = ["gref.png", '#e65f47', 100, 3, () => add_fruit_param(gref) ];
-		var banana = ["banana.png", '#f3c950', 100, 3, () => add_fruit_param(banana) ];
 
 		make_button("Patrunjel");
-		make_button("Portocale");
-		make_button("gref");
-		make_button("banana");
 
     </script>
   </body>

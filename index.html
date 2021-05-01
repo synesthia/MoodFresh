@@ -7,8 +7,8 @@
 		* {
  			box-sizing: border-box;
 		}
-		body {
-		  background-image: url('wood.jpg');
+		.group {
+		  
 		}
 		.comanda {
 		  float: right;
@@ -16,16 +16,19 @@
 	  </style>
   </head>
   <body>
-	  <div>
-	  <img src="fructe.png">
-	  <img src="legume.png">
+	<div class="group" style="background-image: url('fructe.png');">
+		<input id="Portocale" type="image" />
+	</div>
+	<div class="group" style="background-image: url('legume.png');">
+		<input id="Patrunjel" type="image" />
+	</div>
+	<div>
+	  <img src=".png">
 	  <img src="verdeturi.png">
 	  <img src="specials.png">
   <div class="comanda" align="center">
-	<input id="Portocale" type="image" />
 	<input id="gref" type="image" />
 	<input id="banana" type="image" width="70" height="65" />
-	<input id="Patrunjel" type="image" />
 	<input id="x" src="x.png" onclick="remove_fruit()" type="image" width="70" height="65" />
 	<br>
 	<canvas id="canvas" width="120" height="404">

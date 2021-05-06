@@ -76,17 +76,19 @@
 
   <div class="comanda" style="background-color: #f2f2f2;">
 	<img src="moodfresh.png" class="center">
-	<div style="position:relative;">
-		<img src="pahar.png" class="center" style="position:absolute; top:0; left:0;">
-		<canvas id="canvas" width="120" height="404" style="position:absolute; top:0; left:0;">
+	<div style="position:absolute; left:100;">
+		<img src="pahar.png" class="center" style="position:absolute; top:0; left:100;">
+		<canvas id="canvas" width="120" height="404" style="position:absolute; top:0;">
 			Pahar
 		</canvas>
 	</div>
-	<img src="pret.png" style="position: relative; top: 520px; left: 20px">
-	<input id="x" src="elimina.png" onclick="remove_fruit()" type="image" style="position: relative; top: 650px;"/>
+	<img src="pret.png" style="position: relative; top: 520px; left: 70px">
+	<p style="position: relative; top: 550px; left: 100px">
+		<b><font id="total" size="+1" color="#878fa3">0 RON</font></b>
+	</p>
+	<input id="x" src="elimina.png" onclick="remove_fruit()" type="image" style="position: relative; top: 550px; left: 20px"/>
 	<br>
 
-	<p><b><font id="total" size="+3" color="#ffff00">Total</font></b></p>
 	<p><b><font id="grams" size="+3" color="#000000"><b>0 gr.</font></b></p>
   </div>
 </div>

@@ -34,6 +34,11 @@
 			margin-right: auto;
 			padding-top: 10px;
 		}
+		.filling-cup {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+      }
 	  </style>
   </head>
   <body>
@@ -66,13 +71,13 @@
 
   <div class="comanda" style="background-color: #f2f2f2;">
 	<img src="moodfresh.png" class="center">
-	<div style="position:absolute; left:100;">
-		<img src="pahar.png" class="center" style="position:absolute; top:0; left:100;">
-		<canvas id="canvas" width="120" height="404" style="position:absolute; top:0;">
+	<div  class="filling-cup">
+		<img src="pahar.png" style="position:relative;">
+		<canvas id="canvas" width="120" height="216" style="position:absolute;">
 			Pahar
 		</canvas>
 	</div>
-	<img src="pret.png" style="position: relative; top: 520px; left: 70px">
+<img src="pret.png" style="position: relative; top: 520px; left: 70px">
 	<p style="position: relative; top: 550px; left: 100px">
 		<b><font id="total" size="+1" color="#878fa3">0 RON</font></b>
 	</p>
@@ -84,7 +89,7 @@
 </div>
 <script>
 		var canvas = document.getElementById('canvas');
-		var canvas_h = 400;
+		var canvas_h = canvas.height;
 		var ctx = canvas.getContext('2d');
 		var level = 0;
 		var total = 0;
@@ -96,8 +101,8 @@
 		ctx.beginPath();
 		ctx.lineWidth = 4;
 		ctx.moveTo(8, 10);
-		ctx.lineTo(8, canvas_h+2);
-		ctx.lineTo(112, canvas_h+2);
+		ctx.lineTo(8, canvas_h-2);
+		ctx.lineTo(112, canvas_h-2);
 		ctx.lineTo(112, 10);
 		ctx.stroke();
 

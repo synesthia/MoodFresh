@@ -15,13 +15,11 @@
 			padding-bottom: 50px;
 		}
 		.comanda {
+			position: relative;
 			width: 28%;
 			height: 800px;
 			float: right;
 			padding-top: 29px;
-		}
-		.comanda img {
-			padding-bottom: 50px;
 		}
 		.center {
 			display: block;
@@ -39,7 +37,11 @@
 			align-items: center;
 			justify-content: center;
       }
-	  </style>
+	  .bottom {
+        position: absolute;
+        bottom: 0;
+      }
+	</style>
   </head>
   <body>
 	<div>
@@ -70,14 +72,13 @@
 	<div>
 
   <div class="comanda" style="background-color: #f2f2f2;">
-	<img src="moodfresh.png" class="center">
+	<img src="moodfresh.png" class="center" style="padding-bottom: 50px;">
 	<div  class="filling-cup">
 		<img src="pahar.png" style="position:relative;">
 		<canvas id="canvas" width="120" height="216" style="position:absolute;">
 			Pahar
 		</canvas>
 	</div>
-<img src="pret.png" style="position: relative; top: 520px; left: 70px">
 	<p style="position: relative; top: 550px; left: 100px">
 		<b><font id="total" size="+1" color="#878fa3">0 RON</font></b>
 	</p>
@@ -85,6 +86,9 @@
 	<br>
 
 	<p><b><font id="grams" size="+3" color="#000000"><b>0 gr.</font></b></p>
+	<div class="bottom">
+		<img src="pret.png">
+	</div>
   </div>
 </div>
 <script>

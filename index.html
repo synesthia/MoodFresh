@@ -113,14 +113,6 @@
 		var ppgr = 300 / 500; // pixels per gram
 		var ingredients = [];
 
-		ctx.beginPath();
-		ctx.lineWidth = 4;
-		ctx.moveTo(8, 10);
-		ctx.lineTo(8, canvas_h-2);
-		ctx.lineTo(112, canvas_h-2);
-		ctx.lineTo(112, 10);
-		ctx.stroke();
-
 		function show_total() {
 			var tot_sum = document.getElementById('total');
 			tot_sum.innerHTML = total + ' RON';

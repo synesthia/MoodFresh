@@ -108,6 +108,25 @@
   </div>
 </div>
 <script>
+		const idx_img = 0;
+		const idx_fill = 1;
+		const idx_amount = 2;
+		const idx_mony = 3;
+		const idx_func_add = 4;
+
+		// img, fill, amount, price
+		var Portocale = ["Portocale.png", 'green', 100, 3, () => add_fruit_param('Portocale') ];
+		var Mar = ["Mar.png", 'green', 100, 3, () => add_fruit_param('Mar') ];
+		var Banane = ["Banane.png", 'orange', 100, 3, () => add_fruit_param('Banane') ];
+		var Lamaie = ["Lamaie.png", 'orange', 100, 3, () => add_fruit_param('Lamaie') ];
+		var Lime = ["Lime.png", 'orange', 100, 3, () => add_fruit_param('Lime') ];
+		var Kiwi = ["Kiwi.png", 'orange', 100, 3, () => add_fruit_param('Kiwi') ];
+		var Ananas = ["Ananas.png", 'orange', 100, 3, () => add_fruit_param('Ananas') ];
+		var Cocos = ["Cocos.png", 'orange', 100, 3, () => add_fruit_param('Cocos') ];
+		var Grapefruit = ["Grapefruit.png", '#e65f47', 100, 3, () => add_fruit_param('Grapefruit') ];
+
+		var Patrunjel = ["Patrunjel.png", 'green', 20, 2, () => add_fruit_param('Patrunjel') ];
+
 		var canvas = document.getElementById('canvas');
 		var canvas_h = canvas.height;
 		var ctx = canvas.getContext('2d');
@@ -118,22 +137,23 @@
 		var ppgr = 300 / 500; // pixels per gram
 		var ingredients = [];
 
-		function show_total() {
+		function show_total(name) {
 			var tot_sum = document.getElementById('total');
 			tot_sum.innerHTML = total + ' RON';
 
 			var tot_sum = document.getElementById('grams');
-			tot_sum.innerHTML = level + ' gr.';
+			tot_sum.innerHTML += name + ' ' + level + ' ml.' + "<br />";
 		}
 
-		function add_fruit(fill, gr, price) {
+		function add_fruit(name, fill, gr, price) {
 			if ( level < Mare - gr ) {
 				ctx.fillStyle = fill;
 				ctx.fillRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
 				level += gr;
 				total += price;
-				show_total();
+				show_total(name);
 
+				ingredients.push(name);
 				ingredients.push(gr);
 				ingredients.push(price);
 			}
@@ -143,18 +163,13 @@
 			if ( level > 0 ) {
 				price = ingredients.pop();
 				gr = ingredients.pop();
+				name = ingredients.pop();
 				level -= gr;
 				ctx.clearRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
 				total -= price;
-				show_total();
+				show_total(name);
 			}
 		}
-
-		const idx_img = 0;
-		const idx_fill = 1;
-		const idx_amount = 2;
-		const idx_mony = 3;
-		const idx_func_add = 4;
 
 		function make_button(fruit) {
 			var button;
@@ -164,20 +179,11 @@
 			button.onclick = f_arr[idx_func_add];
 		}
 
-		function add_fruit_param(fruit) {
-			add_fruit(fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
+		function add_fruit_param(fruit_name) {
+			var fruit = eval(fruit_name);
+			//add_fruit(Object.keys({fruit})[0], fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
+			add_fruit(fruit_name, fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
 		}
-
-		// img, fill, amount, price
-		var Portocale = ["Portocale.png", 'green', 100, 3, () => add_fruit_param(Portocale) ];
-		var Mar = ["Mar.png", 'green', 100, 3, () => add_fruit_param(Mar) ];
-		var Banane = ["Banane.png", 'orange', 100, 3, () => add_fruit_param(Banane) ];
-		var Lamaie = ["Lamaie.png", 'orange', 100, 3, () => add_fruit_param(Lamaie) ];
-		var Lime = ["Lime.png", 'orange', 100, 3, () => add_fruit_param(Lime) ];
-		var Kiwi = ["Kiwi.png", 'orange', 100, 3, () => add_fruit_param(Kiwi) ];
-		var Ananas = ["Ananas.png", 'orange', 100, 3, () => add_fruit_param(Ananas) ];
-		var Cocos = ["Cocos.png", 'orange', 100, 3, () => add_fruit_param(Cocos) ];
-		var Grapefruit = ["Grapefruit.png", '#e65f47', 100, 3, () => add_fruit_param(Grapefruit) ];
 
 		make_button("Portocale");
 		make_button("Mar");
@@ -188,8 +194,6 @@
 		make_button("Ananas");
 		make_button("Cocos");
 		make_button("Grapefruit");
-
-		var Patrunjel = ["Patrunjel.png", 'green', 20, 2, () => add_fruit_param(Patrunjel) ];
 
 		make_button("Patrunjel");
 

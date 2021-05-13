@@ -142,7 +142,10 @@
 			tot_sum.innerHTML = total + ' RON';
 
 			var tot_sum = document.getElementById('grams');
-			tot_sum.innerHTML += name + ' ' + level + ' ml.' + "<br />";
+			tot_sum.innerHTML = '';
+			for (let i = 0; i < ingredients.length; i += 3) {
+				tot_sum.innerHTML += ingredients[i] + ' ' + level + ' ml.' + "<br />";
+			}
 		}
 
 		function add_fruit(name, fill, gr, price) {
@@ -151,11 +154,12 @@
 				ctx.fillRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
 				level += gr;
 				total += price;
-				show_total(name);
 
 				ingredients.push(name);
 				ingredients.push(gr);
 				ingredients.push(price);
+
+				show_total(name);
 			}
 		}
 

@@ -110,8 +110,8 @@
 			<b><font id="total" size="+1" color="#878fa3">0 RON</font></b>
 		</p>
 		<div style="display: inline; width: 90%;">
-			<input id="x" src="elimina.png" onclick="remove_fruit()" type="image" style="float:left;"/>
-			<input id="cmd" src="comanda.png" onclick="remove_fruit()" type="image" style="float:right;"/>
+			<input id="x" src="elimina.png" onclick="remove_fruit();" type="image" style="float:left;"/>
+			<img id="cmd" src="comanda_gray.png" onclick="toggleImage();" style="float:right;"/>
 		</div>
 	</div>
 </div>
@@ -200,6 +200,18 @@
 			add_fruit(fruit_name, fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
 		}
 
+		function toggleImage() {
+				var img1 = "comanda.png";
+				var img2 = "comanda_gray.png";
+					
+				var img = document.getElementById('cmd').src;
+				if (img.indexOf(img1) != -1) {
+					document.getElementById('toggleImage').src = img2;
+				} else {
+					document.getElementById('toggleImage').src = img1;
+				}
+		}
+
 		make_button("Portocale");
 		make_button("Mar");
 		make_button("Banane");
@@ -211,7 +223,6 @@
 		make_button("Grapefruit");
 
 		make_button("Patrunjel");
-
     </script>
   </body>
 </html>

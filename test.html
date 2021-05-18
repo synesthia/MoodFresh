@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.filling-cup {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+      }
+	  .comanda {
+			position: relative;
+			width: 28%;
+			height: 800px;
+			float: right;
+			padding-top: 29px;
+		}
+		.bottom {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+
+			position: absolute;
+			bottom: 0px;
+			margin-left: auto;
+			margin-right: auto;
+			left: 0px;
+  			right: 0px;
+		}
+	</style>
+  </head>
+  <body>
+	<div class="comanda"  style="background-image: url('comanda.png');">
+		<img src="moodfresh.png" class="center" style="padding-bottom: 50px;">
+
+		<div class="bottom" style="background-color: #f2f200;">
+			<img src="pret.png">
+			<p>
+				<b><font id="total" size="+1" color="#878fa3">0 RON</font></b>
+			</p>
+			<input id="x" src="elimina.png" onclick="remove_fruit()" type="image"/>
+		</div>
+	</div>
+
+</body>
+</html>

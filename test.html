@@ -4,22 +4,69 @@
     <title>Test</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
+		.all {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			/*width: 100%;*/
+		}
+		.group {
+			display: flex;
+			flex-direction: column;
+			/*flex-basis: 100%;*/
+			flex: 1;
+					/*float: left;*/
+			align-items: center;
+			padding-top: 40px;
+		}
+		.group img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.comanda {
+			display: flex;
+			flex-direction: column;
+			flex-basis: 100%;
+			flex: 0 0 auto;
+			position: relative;
+			padding-top: 29px;
+			background-color: #f2f2f2;
+		}
+
+		.box {
+        display: flex;
+      }
+
+      .child {
+        display: flex;
+        width: 15%;
+      }
+
+      .last {
+        flex: 0 0 auto;
+      }
 		</style>
   </head>
 	<body>
-		<script>
-			function toggleImage() {
-				var img1 = "comanda.png";
-				var img2 = "comanda_gray.png";
-					
-				var img = document.getElementById('toggleImage').src;
-				if (img.indexOf(img1) != -1) {
-					document.getElementById('toggleImage').src = img2;
-				} else {
-					document.getElementById('toggleImage').src = img1;
-				}
-			}
-		</script>
-		<img src="comanda_gray.png" id="toggleImage" onclick="toggleImage();"/>		
+		<div class="all">
+			<div class="group" style="background-color: #ffefae;">
+			</div>
+			<div class="group" style="background-color: #ffdac1;">
+			</div>
+			<div class="group" style="background-color: #e9f5d8;">
+			</div>
+			<div class="group" style="background-color: #e1f5fc;">
+			</div>
+			<div class="comanda">
+				a
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="child">One</div>
+			<div class="child" style="background-color: #ffdac1;">Two</div>
+			<div class="last" style="background-color: #0fdac1;">Three</div>
+		</div>
 	</body>
 </html>

@@ -139,8 +139,8 @@
 		const idx_func_add = 4;
 
 		// img, fill, amount, price
-		var Portocale = ["Portocale.png", 'green', 100, 3, () => add_fruit_param('Portocale') ];
-		var Mar = ["Mar.png", 'green', 100, 3, () => add_fruit_param('Mar') ];
+		var Portocale = ["Portocale.png", 'green', 100, 3, function() {add_fruit_param('Portocale');} ];
+/*		var Mar = ["Mar.png", 'green', 100, 3, () => add_fruit_param('Mar') ];
 		var Banane = ["Banane.png", 'orange', 100, 3, () => add_fruit_param('Banane') ];
 		var Lamaie = ["Lamaie.png", 'orange', 100, 3, () => add_fruit_param('Lamaie') ];
 		var Lime = ["Lime.png", 'orange', 100, 3, () => add_fruit_param('Lime') ];
@@ -150,7 +150,7 @@
 		var Grapefruit = ["Grapefruit.png", '#e65f47', 100, 3, () => add_fruit_param('Grapefruit') ];
 
 		var Patrunjel = ["Patrunjel.png", 'green', 20, 2, () => add_fruit_param('Patrunjel') ];
-
+*/
 		var canvas = document.getElementById('canvas');
 		var canvas_h = canvas.height;
 		var ctx = canvas.getContext('2d');
@@ -228,7 +228,7 @@
 		}
 
 		make_button("Portocale");
-		make_button("Mar");
+/*		make_button("Mar");
 		make_button("Banane");
 		make_button("Lamaie");
 		make_button("Lime");
@@ -238,6 +238,6 @@
 		make_button("Grapefruit");
 
 		make_button("Patrunjel");
-    </script>
+*/    </script>
   </body>
 </html>

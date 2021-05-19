@@ -11,8 +11,17 @@
 			align-items: center;
 			padding-top: 40px;
 		}
-		.group img {
+		.group .title {
 			padding-bottom: 50px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.group img {
+			padding-bottom: 10px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		.comanda {
 			position: relative;
@@ -21,6 +30,12 @@
 			float: right;
 			padding-top: 29px;
 			background-color: #f2f2f2;
+		}
+		.comanda .title {
+			padding-bottom: 50px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		.center {
 			display: block;
@@ -64,33 +79,33 @@
   <body>
 	<div>
 		<div class="group" style="background-color: #ffefae;">
-			<img src="fructe.png" class="center">
+			<img src="fructe.png" class="title">
 
-			<input id="Portocale" type="image"/>
-			<input id="Mar" type="image" />
-			<input id="Banane" type="image" />
-			<input id="Lamaie" type="image" />
-			<input id="Lime" type="image" />
-			<input id="Kiwi" type="image" />
-			<input id="Ananas" type="image" />
-			<input id="Cocos" type="image" />
-			<input id="Grapefruit" type="image" />
+			<img id="Portocale"/>
+			<img id="Mar"/>
+			<img id="Banane"/>
+			<img id="Lamaie"/>
+			<img id="Lime"/>
+			<img id="Kiwi"/>
+			<img id="Ananas"/>
+			<img id="Cocos"/>
+			<img id="Grapefruit"/>
 		</div>
 		<div class="group" style="background-color: #ffdac1;">
-			<img src="legume.png" class="center">
-			<input id="Patrunjel" type="image" />
+			<img src="legume.png" class="title">
+			<img id="Patrunjel"/>
 		</div>
 		<div class="group" style="background-color: #e9f5d8;">
-			<img src="verdeturi.png" class="center">
+			<img src="verdeturi.png" class="title">
 		</div>
 		<div class="group" style="background-color: #e1f5fc;">
-			<img src="specials.png" class="center">
+			<img src="specials.png" class="title">
 		</div>
 	</div>
 	<div>
 
   <div class="comanda">
-	<img src="moodfresh.png" class="center" style="padding-bottom: 50px;">
+	<img src="moodfresh.png" class="title" style="padding-bottom: 50px;">
 	<div  class="filling-cup">
 		<canvas id="canvas" width="120" height="216" style="position:absolute;">
 			Pahar

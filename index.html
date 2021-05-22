@@ -130,27 +130,8 @@
 		</div>
 	</div>
 </div>
-</div>
-<script>
-		const idx_img = 0;
-		const idx_fill = 1;
-		const idx_amount = 2;
-		const idx_mony = 3;
-		const idx_func_add = 4;
 
-		// img, fill, amount, price
-		var Portocale = ["Portocale.png", 'green', 100, 3, function() {add_fruit_param('Portocale');} ];
-/*		var Mar = ["Mar.png", 'green', 100, 3, () => add_fruit_param('Mar') ];
-		var Banane = ["Banane.png", 'orange', 100, 3, () => add_fruit_param('Banane') ];
-		var Lamaie = ["Lamaie.png", 'orange', 100, 3, () => add_fruit_param('Lamaie') ];
-		var Lime = ["Lime.png", 'orange', 100, 3, () => add_fruit_param('Lime') ];
-		var Kiwi = ["Kiwi.png", 'orange', 100, 3, () => add_fruit_param('Kiwi') ];
-		var Ananas = ["Ananas.png", 'orange', 100, 3, () => add_fruit_param('Ananas') ];
-		var Cocos = ["Cocos.png", 'orange', 100, 3, () => add_fruit_param('Cocos') ];
-		var Grapefruit = ["Grapefruit.png", '#e65f47', 100, 3, () => add_fruit_param('Grapefruit') ];
-
-		var Patrunjel = ["Patrunjel.png", 'green', 20, 2, () => add_fruit_param('Patrunjel') ];
-*/
+	<script>
 		var canvas = document.getElementById('canvas');
 		var canvas_h = canvas.height;
 		var ctx = canvas.getContext('2d');
@@ -161,45 +142,27 @@
 		var ppgr = 300 / 500; // pixels per gram
 		var ingredients = [];
 
-		function show_total(name) {
+		function show_total() {
 			var tot_sum = document.getElementById('total');
 			tot_sum.innerHTML = total + ' RON';
 
 			var tot_sum = document.getElementById('grams');
-			tot_sum.innerHTML = '';
-			for (let i = 0; i < ingredients.length; i += 3) {
-				tot_sum.innerHTML += ingredients[i] + ' ' + ingredients[i+1] + ' ml.' + "<br />";
-			}
-			tot_sum.innerHTML += "-------<br />";
-			tot_sum.innerHTML += total + ' ml.';
+			tot_sum.innerHTML = level + ' gr.';
 		}
 
-		function add_fruit(name, fill, gr, price) {
+		function add_fruit(fill, gr) {
 			if ( level < Mare - gr ) {
 				ctx.fillStyle = fill;
 				ctx.fillRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
 				level += gr;
-				total += price;
-
-				ingredients.push(name);
-				ingredients.push(gr);
-				ingredients.push(price);
-
-				show_total(name);
 			}
 		}
 
-		function remove_fruit() {
-			if ( level > 0 ) {
-				price = ingredients.pop();
-				gr = ingredients.pop();
-				name = ingredients.pop();
-				level -= gr;
-				ctx.clearRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
-				total -= price;
-				show_total(name);
-			}
-		}
+		const idx_img = 0;
+		const idx_fill = 1;
+		const idx_amount = 2;
+		const idx_mony = 3;
+		const idx_func_add = 4;
 
 		function make_button(fruit) {
 			var button;
@@ -211,33 +174,13 @@
 
 		function add_fruit_param(fruit_name) {
 			var fruit = eval(fruit_name);
-			//add_fruit(Object.keys({fruit})[0], fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
-			add_fruit(fruit_name, fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
+			add_fruit(fruit[idx_fill], fruit[idx_amount]);
 		}
 
-		function toggleImage() {
-				var img1 = "comanda.png";
-				var img2 = "comanda_gray.png";
-					
-				var img = document.getElementById('cmd').src;
-				if (img.indexOf(img1) != -1) {
-					document.getElementById('toggleImage').src = img2;
-				} else {
-					document.getElementById('toggleImage').src = img1;
-				}
-		}
+		var Portocale = ["Portocale.png", 'green', 100, 3, function() {add_fruit_param('Portocale');} ];
 
 		make_button("Portocale");
-/*		make_button("Mar");
-		make_button("Banane");
-		make_button("Lamaie");
-		make_button("Lime");
-		make_button("Kiwi");
-		make_button("Ananas");
-		make_button("Cocos");
-		make_button("Grapefruit");
 
-		make_button("Patrunjel");
-*/    </script>
+    </script>
   </body>
 </html>

@@ -148,7 +148,7 @@
 		var ppgr = 300 / 500; // pixels per gram
 		var ingredients = [];
 
-		function show_total() {
+		function show_total(name) {
 			var tot_sum = document.getElementById('total');
 			tot_sum.innerHTML = total + ' RON';
 
@@ -156,11 +156,30 @@
 			tot_sum.innerHTML = level + ' gr.';
 		}
 
-		function add_fruit(fill, gr) {
+		function add_fruit(name, fill, gr, price) {
 			if ( level < Mare - gr ) {
 				ctx.fillStyle = fill;
 				ctx.fillRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
 				level += gr;
+				total += price;
+
+				ingredients.push(name);
+				ingredients.push(gr);
+				ingredients.push(price);
+
+				show_total(name);
+			}
+		}
+
+		function remove_fruit() {
+			if ( level > 0 ) {
+				price = ingredients.pop();
+				gr = ingredients.pop();
+				name = ingredients.pop();
+				level -= gr;
+				ctx.clearRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
+				total -= price;
+				show_total(name);
 			}
 		}
 
@@ -174,7 +193,8 @@
 
 		function add_fruit_param(fruit_name) {
 			var fruit = eval(fruit_name);
-			add_fruit(fruit[idx_fill], fruit[idx_amount]);
+			//add_fruit(Object.keys({fruit})[0], fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
+			add_fruit(fruit_name, fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
 		}
 
 		var Portocale = ["Portocale.png", 'green', 100, 3, function() {add_fruit_param('Portocale');} ];

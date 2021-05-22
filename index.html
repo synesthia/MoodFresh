@@ -138,6 +138,10 @@
 		const idx_mony = 3;
 		const idx_func_add = 4;
 
+		var Portocale = ["Portocale.png", 'green', 100, 3, function() {add_fruit_param('Portocale');} ];
+
+		make_button("Portocale");
+
 		var canvas = document.getElementById('canvas');
 		var canvas_h = canvas.height;
 		var ctx = canvas.getContext('2d');
@@ -196,10 +200,6 @@
 			//add_fruit(Object.keys({fruit})[0], fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
 			add_fruit(fruit_name, fruit[idx_fill], fruit[idx_amount], fruit[idx_mony]);
 		}
-
-		var Portocale = ["Portocale.png", 'green', 100, 3, function() {add_fruit_param('Portocale');} ];
-
-		make_button("Portocale");
 
     </script>
   </body>

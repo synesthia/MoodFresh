@@ -132,6 +132,12 @@
 </div>
 
 	<script>
+		const idx_img = 0;
+		const idx_fill = 1;
+		const idx_amount = 2;
+		const idx_mony = 3;
+		const idx_func_add = 4;
+
 		var canvas = document.getElementById('canvas');
 		var canvas_h = canvas.height;
 		var ctx = canvas.getContext('2d');
@@ -157,12 +163,6 @@
 				level += gr;
 			}
 		}
-
-		const idx_img = 0;
-		const idx_fill = 1;
-		const idx_amount = 2;
-		const idx_mony = 3;
-		const idx_func_add = 4;
 
 		function make_button(fruit) {
 			var button;

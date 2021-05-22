@@ -157,7 +157,12 @@
 			tot_sum.innerHTML = total + ' RON';
 
 			var tot_sum = document.getElementById('grams');
-			tot_sum.innerHTML = level + ' gr.';
+			tot_sum.innerHTML = '';
+			for (i = 0; i < ingredients.length; i += 3) {
+				tot_sum.innerHTML += ingredients[i] + ' ' + ingredients[i+1] + ' ml.' + "<br />";
+			}
+			tot_sum.innerHTML += "-------<br />";
+			tot_sum.innerHTML += total + ' ml.';
 		}
 
 		function add_fruit(name, fill, gr, price) {

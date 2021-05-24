@@ -77,9 +77,10 @@
 			color: #878fa3;
 			font-weight: bold;
 		}
-		.list {
-			text-align: right;
-			text-justify: inter-word;
+		.list_text {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size:17px;
+			color: #878fa3;
 		}
 	</style>
   </head>
@@ -147,15 +148,15 @@
 			<table style="width: 70%;">
 				<tr>
 					<td>
-						<b><font id="list_item" size="+1" color="#878fa3"></font></b>
+						<div id="list_item" class="list_text"></div>
 					</td>
 					<td   style="text-align: right;">
-						<b><font id="ml" size="+1" color="#878fa3"></font></b>
+						<div id="ml" class="list_text"></div>
 					</td>
 				</tr>
 			<tr>
 				<td colspan="2"  style="text-align: right;">
-						<b><font id="total_ml" size="+1" color="#878fa3"></font></b>
+					<div id="total_ml" class="list_text"></div>
 				</td>
 			</tr>
 		</table>

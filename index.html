@@ -93,13 +93,28 @@
 		</div>
 		<div class="group" style="background-color: #ffdac1;">
 			<img src="legume.png" class="title">
-			<img id="Patrunjel"/>
+
+			<img id="Castravete"/>
+			<img id="Morcov"/>
+			<img id="Sfecla"/>
 		</div>
 		<div class="group" style="background-color: #e9f5d8;">
 			<img src="verdeturi.png" class="title">
+
+			<img id="Spanac"/>
+			<img id="Kale"/>
+			<img id="Menta"/>
+			<img id="Telina"/>
+			<img id="Patrunjel"/>
 		</div>
 		<div class="group" style="background-color: #e1f5fc;">
 			<img src="specials.png" class="title">
+
+			<img id="Chia"/>
+			<img id="Scortisoara"/>
+			<img id="Ghimbir"/>
+			<img id="Canepa"/>
+			<img id="Turmeric"/>
 		</div>
 	</div>
 	<div>
@@ -139,8 +154,55 @@
 		const idx_func_add = 4;
 
 		var Portocale = ["Portocale.png", 'green', 100, 3, function() {add_fruit_param('Portocale');} ];
+		var Mar = ["Mar.png", 'green', 100, 2, function() {add_fruit_param('Mar');} ];
+		var Banane = ["Banane.png", 'green', 100, 3, function() {add_fruit_param('Banane');} ];
+		var Lamaie = ["Lamaie.png", 'green', 50, 2, function() {add_fruit_param('Lamaie');} ];
+		var Lime = ["Lime.png", 'green', 20, 2, function() {add_fruit_param('Lime');} ];
+		var Kiwi = ["Kiwi.png", 'green', 100, 4, function() {add_fruit_param('Kiwi');} ];
+		var Ananas = ["Ananas.png", 'green', 100, 4, function() {add_fruit_param('Ananas');} ];
+		var Cocos = ["Cocos.png", 'green', 20, 3, function() {add_fruit_param('Cocos');} ];
+		var Grapefruit = ["Grapefruit.png", 'green', 100, 3, function() {add_fruit_param('Grapefruit');} ];
 
 		make_button("Portocale");
+		make_button("Mar");
+		make_button("Banane");
+		make_button("Lamaie");
+		make_button("Lime");
+		make_button("Kiwi");
+		make_button("Cocos");
+		make_button("Grapefruit");
+
+		var Castravete = ["Castravete.png", 'green', 100, 3, function() {add_fruit_param('Castravete');} ];
+		var Morcov = ["Morcov.png", 'green', 100, 3, function() {add_fruit_param('Morcov');} ];
+		var Sfecla = ["Sfecla.png", 'green', 50, 2, function() {add_fruit_param('Sfecla');} ];
+
+		make_button("Castravete");
+		make_button("Morcov");
+		make_button("Sfecla");
+
+		var Spanac = ["Spanac.png", 'green', 50, 3, function() {add_fruit_param('Spanac');} ];
+		var Kale = ["Kale.png", 'green', 50, 4, function() {add_fruit_param('Kale');} ];
+		var Menta = ["Menta.png", 'green', 5, 2, function() {add_fruit_param('Menta');} ];
+		var Telina = ["Telina.png", 'green', 100, 4, function() {add_fruit_param('Telina');} ];
+		var Patrunjel = ["Patrunjel.png", 'green', 20, 2, function() {add_fruit_param('Patrunjel');} ];
+
+		make_button("Spanac");
+		make_button("Kale");
+		make_button("Menta");
+		make_button("Telina");
+		make_button("Patrunjel");
+
+		var Chia = ["Chia.png", 'green', 10, 2, function() {add_fruit_param('Chia');} ];
+		var Scortisoara = ["Scortisoara.png", 'green', 5, 2, function() {add_fruit_param('Scortisoara');} ];
+		var Ghimbir = ["Ghimbir.png", 'green', 10, 2, function() {add_fruit_param('Ghimbir');} ];
+		var Canepa = ["Canepa.png", 'green', 10, 2, function() {add_fruit_param('Canepa');} ];
+		var Turmeric = ["Turmeric.png", 'green', 5, 2, function() {add_fruit_param('Turmeric');} ];
+
+		make_button("Chia");
+		make_button("Scortisoara");
+		make_button("Ghimbir");
+		make_button("Canepa");
+		make_button("Turmeric");
 
 		var canvas = document.getElementById('canvas');
 		var canvas_h = canvas.height;

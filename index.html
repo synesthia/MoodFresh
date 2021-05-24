@@ -28,7 +28,7 @@
 			width: 28%;
 			height: 700px;
 			float: right;
-			padding-top: 29px;
+			padding-top: 20px;
 			background-color: #f2f2f2;
 		}
 		.comanda .title {
@@ -137,9 +137,21 @@
 	</div>
 
 	<div class="filling-cup">
-			<p class="list">
-				<b><font id="grams" size="+1" color="#878fa3"><b>0 ml</font></b>
-			</p>
+			<table style="width: 70%;">
+				<tr>
+					<td>
+						<b><font id="list_item" size="+1" color="#878fa3"></font></b>
+					</td>
+					<td   style="text-align: right;">
+						<b><font id="ml" size="+1" color="#878fa3"></font></b>
+					</td>
+				</tr>
+			<tr>
+				<td colspan="2"  style="text-align: right;">
+						<b><font id="total_ml" size="+1" color="#878fa3"></font></b>
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<div class="bottom">
@@ -226,13 +238,17 @@
 			var tot_sum = document.getElementById('total');
 			tot_sum.innerHTML = total + ' RON';
 
-			var tot_sum = document.getElementById('grams');
-			tot_sum.innerHTML = '';
+			var li = document.getElementById('list_item');
+			li.innerHTML = '';
+			var ml = document.getElementById('ml');
+			ml.innerHTML = '';
 			for (i = 0; i < ingredients.length; i += 3) {
-				tot_sum.innerHTML += ingredients[i] + ' ' + ingredients[i+1] + ' ml.' + "<br />";
+				li.innerHTML += ingredients[i] + "<br />";
+				ml.innerHTML += ingredients[i+1] + ' ml.' + "<br />";
 			}
-			tot_sum.innerHTML += "-------<br />";
-			tot_sum.innerHTML += level + ' ml.';
+			var ttml = document.getElementById('total_ml');
+			ttml.innerHTML = "-------<br />";
+			ttml.innerHTML += level + ' ml.';
 		}
 
 		function order_green() {

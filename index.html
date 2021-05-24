@@ -26,12 +26,12 @@
 		.comanda {
 			position: relative;
 			width: 28%;
-			height: 700px;
+			height: 720px;
 			float: right;
 			padding-top: 20px;
 			background-color: #f2f2f2;
 		}
-		.comanda .title {
+		.comanda_title {
 			padding-bottom: 20px;
 			display: block;
 			margin-left: auto;
@@ -56,7 +56,7 @@
 		.bottom {
 			display: flex;
 			align-items: center;
-			justify-content: center;
+			justify-content: space-between;
 			flex-direction: column;
 
 			position: absolute;
@@ -64,11 +64,12 @@
 			margin-left: auto;
 			margin-right: auto;
 			left: 0px;
-  			right: 0px;
+  		right: 0px;
 
 			background-image: url('arch.png');
 			background-size: cover;
 			padding-top: 15px;
+			padding-bottom: 10px;
 		}
 		.list {
 			text-align: right;
@@ -128,7 +129,7 @@
 	<div>
 
   <div class="comanda">
-	<img src="moodfresh.png" class="title">
+	<img src="moodfresh.png" class="comanda_title">
 	<div  class="filling-cup">
 		<canvas id="canvas" width="120" height="216" style="position:absolute;">
 			Pahar
@@ -156,9 +157,9 @@
 
 	<div class="bottom">
 		<img src="pret.png">
-		<p>
-			<b><font id="total" size="+1" color="#878fa3">0 RON</font></b>
-		</p>
+		<div style="padding-bottom: 7px;"></div>
+		<b><font id="total" size="+1" color="#878fa3">0 RON</font></b>
+		<div style="padding-bottom: 9px;"></div>
 		<div style="display: inline; width: 95%;">
 			<img id="x" src="elimina.png" onclick="remove_fruit();" style="float:left;"/>
 			<img id="cmd" src="comanda_gray.png" onclick="toggleImage();" style="float:right;"/>

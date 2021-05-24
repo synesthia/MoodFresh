@@ -217,7 +217,7 @@
 		var ctx = canvas.getContext('2d');
 		var level = 0;
 		var total = 0;
-		var Mic = 450;
+		var Mic = 400;
 		var Mare = 500; // grams
 		var ppgr = canvas_h / 500; // pixels per gram
 		var ingredients = [];
@@ -235,6 +235,14 @@
 			tot_sum.innerHTML += total + ' ml.';
 		}
 
+		function order_green() {
+			document.getElementById('cmd').src = "comanda.png";
+		}
+
+		function order_gray() {
+			document.getElementById('cmd').src = "comanda_gray.png";
+		}
+
 		function add_fruit(name, fill, gr, price) {
 			if ( level < Mare - gr ) {
 				ctx.fillStyle = fill;
@@ -248,6 +256,10 @@
 
 				show_total(name);
 			}
+
+			if ( level >= Mic ) {
+				order_green();
+			}
 		}
 
 		function remove_fruit() {
@@ -259,6 +271,12 @@
 				ctx.clearRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
 				total -= price;
 				show_total(name);
+			}
+			if ( level < Mare - gr ) {
+				order_gray();
+			}
+			else {
+				order_green();
 			}
 		}
 

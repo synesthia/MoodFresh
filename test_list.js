@@ -1,4 +1,4 @@
-var fields = ['name', 'amount', 'price'];
+var fields = ['name', 'gr', 'price'];
 var fruits_data = [
   ["Portocale", 100, 3],
   ["Banane", 120, 4],
@@ -19,54 +19,49 @@ function make_fruit(fdata) {
 fruits_data.forEach(make_fruit);
 
 console.log(fruits);
-/*
+
 var list = Object();
-list.add = function(name, gr) {
-  if (list.hasOwnProperty(name)) {
-    this[name].gr += gr;
+list.add = function(fruit) {
+  if (list.hasOwnProperty(fruit.name)) {
+    this[fruit.name].gr += fruit.gr;
   }
   else {
-    this[name] = Object();
-    this[name].gr = gr;
+    this[fruit.name] = Object();
+    this[fruit.name].gr = fruit.gr;
   }
 }
 
-list.remove = function(name, gr) {
-  if (list.hasOwnProperty(name)) {
-    this[name].gr -= gr;
-    if (this[name].gr <= 0) {
-      delete this[name];
+list.remove = function(fruit) {
+  if (list.hasOwnProperty(fruit.name)) {
+    this[fruit.name].gr -= fruit.gr;
+    if (this[fruit.name].gr <= 0) {
+      delete this[fruit.name];
     }
   }
 }
 
-list.add('p', 3);
-list.add('ba', 2);
-list.add('p', 3);
+list.add(fruits[0]);
+list.add(fruits[1]);
+list.add(fruits[2]);
 
 console.log(list);
 
-list.remove('p', 3);
+list.add(fruits[2]);
 
 console.log(list);
 
-list.remove('ba', 2);
+list.remove(fruits[2]);
 
 console.log(list);
 
-list.remove('bs', 0);
+list.add(fruits[1]);
 
 console.log(list);
 
-list.remove('p', 3);
+list.remove(fruits[0]);
 
 console.log(list);
 
-list.remove('ba', 2);
+list.remove(fruits[0]);
 
 console.log(list);
-
-list.remove('bs', 3);
-
-console.log(list);
-*/

@@ -242,6 +242,25 @@
 		var Mare = 500; // grams
 		var ppgr = canvas_h / 500; // pixels per gram
 		var ingredients = [];
+		var List = Object();
+
+		List.add = function(name, gr, price) {
+			if (List.hasOwnProperty(name)) {
+				this[name] += 3;
+			}
+			else {
+				this[name] = 3;
+			}
+		}
+
+		List.remove = function(name) {
+			if (List.hasOwnProperty(name)) {
+				this[name] -= 3;
+				if (this[name] <= 0) {
+					delete this[name];
+				}
+			}
+		}
 
 		function show_total(name) {
 			var tot_sum = document.getElementById('total');

@@ -1,67 +1,84 @@
-var fields = ['name', 'gr', 'price'];
-var fruits_data = [
+var Fields = ['name', 'gr', 'price'];
+var Fruits_data = [
   ["Portocale", 100, 3],
   ["Banane", 120, 4],
   ["Cocos", 55, 5]
 ];
-var fruits = [];
+var Fruits = new Map();
 
-function make_fruit(fdata) {
+function make_Fruits(fruit_array) {
   var fruit = Object();
+  var name;
 
-  fdata.forEach((field, i) => {
-    fruit[fields[i]] = field;
+  fruit_array.forEach((field, i) => {
+    if ('name' == Fields[i]) {
+      name = fruit_array[i];
+    }
+    else {
+      fruit[Fields[i]] = field;
+    }
   });
 
-  fruits.push(fruit);
+  Fruits.set(name, fruit);
 }
 
-fruits_data.forEach(make_fruit);
+Fruits_data.forEach(make_Fruits);
 
-console.log(fruits);
+console.log(Fruits);
 
-var list = Object();
-list.add = function(fruit) {
-  if (list.hasOwnProperty(fruit.name)) {
-    this[fruit.name].gr += fruit.gr;
+var List = new Map();
+
+List.add = function(fruit_name) {
+  if (List.has(fruit_name)) {
+    this.get(fruit_name).gr += Fruits.get(fruit_name).gr;
   }
   else {
-    this[fruit.name] = Object();
-    this[fruit.name].gr = fruit.gr;
+    this.set(fruit_name, Object());
+    this.get(fruit_name).gr = Fruits.get(fruit_name).gr;
   }
 }
 
-list.remove = function(fruit) {
-  if (list.hasOwnProperty(fruit.name)) {
-    this[fruit.name].gr -= fruit.gr;
-    if (this[fruit.name].gr <= 0) {
-      delete this[fruit.name];
+List.remove = function(fruit_name) {
+  if (List.has(fruit_name)) {
+    this.get(fruit_name).gr -= Fruits.get(fruit_name).gr;
+    if (this.get(fruit_name).gr <= 0) {
+      this.delete(fruit_name);
     }
   }
 }
 
-list.add(fruits[0]);
-list.add(fruits[1]);
-list.add(fruits[2]);
+List.add('Cocos');
 
-console.log(list);
+console.log(List);
 
-list.add(fruits[2]);
+List.add('Banane');
 
-console.log(list);
+console.log(List);
 
-list.remove(fruits[2]);
+List.add('Banane');
 
-console.log(list);
+console.log(List);
 
-list.add(fruits[1]);
+List.add('Banane');
 
-console.log(list);
+console.log(List);
 
-list.remove(fruits[0]);
+List.add('Cocos');
 
-console.log(list);
+console.log(List);
 
-list.remove(fruits[0]);
+List.remove('Cocos');
 
-console.log(list);
+console.log(List);
+
+List.remove('Cocos');
+
+console.log(List);
+
+List.remove('Cocos');
+
+console.log(List);
+
+List.remove('Banane');
+
+console.log(List);

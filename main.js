@@ -14,7 +14,7 @@ var Ananas = ["Ananas.png", '#fee88f', 100, 4, function() {add_fruit_param('Anan
 var Cocos = ["Cocos.png", 'white', 20, 3, function() {add_fruit_param('Cocos');} ];
 var Grapefruit = ["Grapefruit.png", '#ff6677', 100, 3, function() {add_fruit_param('Grapefruit');} ];
 
-make_button("Portocale");
+//make_button("Portocale");
 make_button("Mar");
 make_button("Banane");
 make_button("Lamaie");
@@ -55,6 +55,68 @@ make_button("Scortisoara");
 make_button("Ghimbir");
 make_button("Canepa");
 make_button("Turmeric");
+
+var Key = 'name';
+var Fields = [Key, 'color', 'grams', 'price'];
+var Fruits_data = [
+  ["Portocale", 'orange', 100, 3],
+  ["Banane", '#ffe135', 100, 3],
+  ["Cocos", 'white', 20, 3]
+];
+
+var Fruits = new Map();
+
+function make_Fruits(fruit_array) {
+  var fruit = Object();
+  var name;
+
+  fruit_array.forEach((field, i) => {
+    if (Key == Fields[i]) {
+      name = fruit_array[i];
+    }
+    else {
+      fruit[Fields[i]] = field;
+    }
+  });
+
+  Fruits.set(name, fruit);
+}
+
+Fruits_data.forEach(make_Fruits);
+
+var List = new Map();
+
+List.add = function(fruit_name) {
+  if (List.has(fruit_name)) {
+    this.get(fruit_name).gr += Fruits.get(fruit_name).gr;
+  }
+  else {
+    this.set(fruit_name, Object());
+    this.get(fruit_name).gr = Fruits.get(fruit_name).gr;
+  }
+}
+
+List.remove = function(fruit_name) {
+  if (List.has(fruit_name)) {
+    this.get(fruit_name).gr -= Fruits.get(fruit_name).gr;
+    if (this.get(fruit_name).gr <= 0) {
+      this.delete(fruit_name);
+    }
+  }
+}
+
+make_btn("Portocale");
+
+function make_btn(fruit) {
+  var button;
+  button = document.getElementById(fruit);
+
+  button.src = fruit + '.png';
+
+  button.onclick = function() {
+    add_fruit_param(fruit);
+  };
+}
 
 var canvas = document.getElementById('canvas');
 var canvas_h = canvas.height;

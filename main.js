@@ -118,15 +118,19 @@ function make_btn(fruit) {
   };
 }
 
-var canvas = document.getElementById('canvas');
-var canvas_h = canvas.height;
-var ctx = canvas.getContext('2d');
-var level = 0;
 var total = 0;
 var Mic = 400;
 var Mare = 500; // grams
-var ppgr = canvas_h / 500; // pixels per gram
+
+var Canvas = Object();
+Canvas.elem = document.getElementById('canvas');
+Canvas.h = Canvas.elem.height;
+Canvas.ctx = Canvas.elem.getContext('2d');
+Canvas.level = 0;
+Canvas.ppgr = Canvas.h / Mare; // pixels per gram
+
 var ingredients = [];
+
 var List = Object();
 
 List.add = function(name, gr, price) {
@@ -173,10 +177,10 @@ function order_gray() {
 }
 
 function add_fruit(name, fill, gr, price) {
-  if ( level < Mare - gr ) {
-    ctx.fillStyle = fill;
-    ctx.fillRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
-    level += gr;
+  if ( Canvas.level < Mare - gr ) {
+    Canvas.ctx.fillStyle = fill;
+    Canvas.ctx.fillRect(10, Canvas.h - (Canvas.level+gr)*Canvas.ppgr, 100, gr*Canvas.ppgr);
+    Canvas.level += gr;
     total += price;
 
     ingredients.push(name);
@@ -186,22 +190,22 @@ function add_fruit(name, fill, gr, price) {
     show_total(name);
   }
 
-  if ( level >= Mic ) {
+  if ( Canvas.level >= Mic ) {
     order_green();
   }
 }
 
 function remove_fruit() {
-  if ( level > 0 ) {
+  if ( Canvas.level > 0 ) {
     price = ingredients.pop();
     gr = ingredients.pop();
     name = ingredients.pop();
-    level -= gr;
-    ctx.clearRect(10, canvas_h - (level+gr)*ppgr, 100, gr*ppgr);
+    Canvas.level -= gr;
+    Canvas.ctx.clearRect(10, Canvas.h - (Canvas.level+gr)*Canvas.ppgr, 100, gr*Canvas.ppgr);
     total -= price;
-    show_total(name);
+    show_total();
   }
-  if ( level < Mic ) {
+  if ( Canvas.level < Mic ) {
     order_gray();
   }
   else {

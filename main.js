@@ -151,21 +151,25 @@ List.remove = function(name) {
   }
 }
 
-function show_total(name) {
-  var tot_sum = document.getElementById('total');
-  tot_sum.innerHTML = total + ' RON';
+var Gui = Object();
+Gui.setList = function(total_sum, list_item, mililiters, total_mililiters) {
+  document.getElementById('total').innerHTML = total_sum;
+  document.getElementById('list_item').innerHTML = list_item;
+  document.getElementById('ml').innerHTML = mililiters;
+  document.getElementById('total_ml').innerHTML = total_mililiters;
+}
 
-  var li = document.getElementById('list_item');
-  li.innerHTML = '';
-  var ml = document.getElementById('ml');
-  ml.innerHTML = '';
+function show_total() {
+  var li = '';
+  var ml = '';
   for (i = 0; i < ingredients.length; i += 3) {
-    li.innerHTML += ingredients[i] + "<br />";
-    ml.innerHTML += ingredients[i+1] + ' ml.' + "<br />";
+    li += ingredients[i] + "<br />";
+    ml += ingredients[i+1] + ' ml.' + "<br />";
   }
-  var ttml = document.getElementById('total_ml');
-  ttml.innerHTML = "-------<br />";
-  ttml.innerHTML += level + ' ml.';
+  var ttml = "-------<br />";
+  ttml += Canvas.level + ' ml.';
+
+  Gui.setList(total + ' RON', li, ml, ttml);
 }
 
 function order_green() {
@@ -187,7 +191,7 @@ function add_fruit(name, fill, gr, price) {
     ingredients.push(gr);
     ingredients.push(price);
 
-    show_total(name);
+    show_total();
   }
 
   if ( Canvas.level >= Mic ) {

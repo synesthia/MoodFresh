@@ -129,6 +129,18 @@ Canvas.ctx = Canvas.elem.getContext('2d');
 Canvas.level = 0;
 Canvas.ppgr = Canvas.h / Mare; // pixels per gram
 
+Canvas.fill = function (color, gr, price) {
+  this.ctx.fillStyle = color;
+  this.ctx.fillRect(10, this.h - (this.level + gr) * this.ppgr, 100, gr * this.ppgr);
+  this.level += gr;
+  total += price;
+}
+
+Canvas.back = function(gr) {
+  this.level -= gr;
+  this.ctx.clearRect(10, this.h - (this.level+gr)*this.ppgr, 100, gr*this.ppgr);
+}
+
 var ingredients = [];
 
 var List = Object();
@@ -180,12 +192,9 @@ function order_gray() {
   document.getElementById('cmd').src = "comanda_gray.png";
 }
 
-function add_fruit(name, fill, gr, price) {
+function add_fruit(name, color, gr, price) {
   if ( Canvas.level < Mare - gr ) {
-    Canvas.ctx.fillStyle = fill;
-    Canvas.ctx.fillRect(10, Canvas.h - (Canvas.level+gr)*Canvas.ppgr, 100, gr*Canvas.ppgr);
-    Canvas.level += gr;
-    total += price;
+    Canvas.fill(color, gr, price);
 
     ingredients.push(name);
     ingredients.push(gr);
@@ -204,8 +213,9 @@ function remove_fruit() {
     price = ingredients.pop();
     gr = ingredients.pop();
     name = ingredients.pop();
-    Canvas.level -= gr;
-    Canvas.ctx.clearRect(10, Canvas.h - (Canvas.level+gr)*Canvas.ppgr, 100, gr*Canvas.ppgr);
+
+    Canvas.back(gr);
+
     total -= price;
     show_total();
   }

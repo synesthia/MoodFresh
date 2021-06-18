@@ -24,6 +24,11 @@
 			margin-right: auto;
 		}
 		.comanda {
+			display: flex;
+			align-items: stretch;
+			/*justify-content: space-between;*/
+			flex-direction: column;
+
 			position: relative;
 			width: 28%;
 			height: 720px;
@@ -53,16 +58,25 @@
 			align-items: center;
 			justify-content: center;
 		}
+		.list {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: auto;
+		}
+		.grow {
+			flex-grow: 1;
+		}
 		.bottom {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			flex-direction: column;
 
-			position: absolute;
+			/*position: absolute;*/
 			bottom: 0px;
-			margin-left: auto;
-			margin-right: auto;
+			margin-left: 0;
+			margin-right: 0;
 			left: 0px;
   		right: 0px;
 
@@ -135,41 +149,44 @@
 	</div>
 	<div>
 
-  <div class="comanda">
-	<img src="moodfresh.png" class="comanda_title">
-	<div  class="filling-cup">
-		<canvas id="canvas" width="120" height="223" style="position:absolute;">
-			Pahar
-		</canvas>
-		<img src="pahar.png" style="position:relative;">
-	</div>
+	<div class="comanda">
+		<img src="moodfresh.png" class="comanda_title">
+		<div  class="filling-cup">
+			<canvas id="canvas" width="120" height="223" style="position:absolute;">
+				Pahar
+			</canvas>
+			<img src="pahar.png" style="position:relative;">
+		</div>
 
-	<div class="filling-cup">
-			<table style="width: 70%;">
-				<tr>
-					<td>
-						<div id="list_item" class="list_text"></div>
-					</td>
-					<td   style="text-align: right;">
-						<div id="ml" class="list_text"></div>
-					</td>
-				</tr>
-			<tr>
-				<td colspan="2"  style="text-align: right;">
-					<div id="total_ml" class="list_text"></div>
-				</td>
-			</tr>
-		</table>
-	</div>
+		<div class="grow">
+			<div class="list">
+				<table style="width: 70%;">
+					<tr>
+						<td>
+							<div id="list_item" class="list_text"></div>
+						</td>
+						<td   style="text-align: right;">
+							<div id="ml" class="list_text"></div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2"  style="text-align: right;">
+							<div id="total_ml" class="list_text"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 
-	<div class="bottom">
-		<img src="pret.png">
-		<div style="padding-bottom: 7px;"></div>
-		<div id="total" class="total_text">0 RON</div>
-		<div style="padding-bottom: 9px;"></div>
-		<div style="display: inline; width: 95%;">
-			<img id="x" src="elimina.png" onclick="remove_fruit();" style="float:left;"/>
-			<img id="cmd" src="comanda_gray.png" onclick="toggleImage();" style="float:right;"/>
+		<div class="bottom">
+				<img src="pret.png">
+			<div style="padding-bottom: 7px;"></div>
+			<div id="total" class="total_text">0 RON</div>
+			<div style="padding-bottom: 9px;"></div>
+			<div style="display: inline; width: 95%;">
+				<img id="x" src="elimina.png" onclick="remove_fruit();" style="float:left;"/>
+				<img id="cmd" src="comanda_gray.png" onclick="toggleImage();" style="float:right;"/>
+			</div>
 		</div>
 	</div>
 </div>

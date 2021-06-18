@@ -13,8 +13,8 @@ var Fruits_data = [
   ["Grapefruit", '#ff6677', 100, 3],
 
   ["Castravete", '#8ABB55', 100, 3],
-  ["Morcov.png", '#d74e26', 100, 3],
-  ["Sfecla.png", '#7A1F3D', 50, 2],
+  ["Morcov", '#d74e26', 100, 3],
+  ["Sfecla", '#7A1F3D', 50, 2],
 
   ["Spanac", '#288568', 50, 3],
   ["Kale", '#61774F', 50, 4],

@@ -64,7 +64,7 @@ function make_Fruits(fruit_array) {
   var fruit = Object();
   var name;
 
-  fruit_array.forEach((field, i) => {
+  fruit_array.forEach(function (field, i) {
     if (Key == Fields[i]) {
       name = fruit_array[i];
     }

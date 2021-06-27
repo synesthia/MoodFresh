@@ -128,14 +128,20 @@ Canvas.ppgr = Canvas.h / Mare; // pixels per gram
 
 Canvas.fill = function (color, gr, price) {
   this.ctx.fillStyle = color;
-  this.ctx.fillRect(10, this.h - (this.level + gr) * this.ppgr, 100, gr * this.ppgr);
+  this.ctx.fillRect(10, this.h - (this.level + gr) * this.ppgr, 100, gr * this.ppgr + 1);
   this.level += gr;
   total += price;
 }
 
 Canvas.back = function(gr) {
   this.level -= gr;
-  this.ctx.clearRect(10, this.h - (this.level+gr)*this.ppgr, 100, gr*this.ppgr);
+  this.ctx.clearRect(10, this.h - (this.level+gr)*this.ppgr - 1, 100, gr*this.ppgr +2);
+}
+
+Canvas.clear = function(gr) {
+  this.ctx.clearRect(0, 0, this.elem.width, this.elem.height);
+  this.level = 0;
+  total = 0;
 }
 
 var Gui = Object();
@@ -153,13 +159,17 @@ function show_total() {
     li += fr + "<br />";
     ml += gr + ' ml.' + "<br />";
   }
-  var ttml = "-------<br />";
-  ttml += Canvas.level + ' ml.';
+  var ttml = '';
+  if (Canvas.level > 0) {
+    ttml = "-------<br />";
+    ttml += Canvas.level + ' ml.';
+  }
 
   Gui.setList(total + ' RON', li, ml, ttml);
 }
 
 var order_ok = false;
+var reset = false;
 
 function order_green() {
   document.getElementById('cmd').src = "comanda.png";
@@ -174,7 +184,7 @@ function order_gray() {
 var History = [];
 
 function add_fruit(fruit_name) {
-  if ( Canvas.level < Mare - Fruits.get(fruit_name).grams ) {
+  if ( Canvas.level <= Mare - Fruits.get(fruit_name).grams ) {
     Canvas.fill(Fruits.get(fruit_name).color, Fruits.get(fruit_name).grams, Fruits.get(fruit_name).price);
 
     List.add(fruit_name);
@@ -189,6 +199,16 @@ function add_fruit(fruit_name) {
 }
 
 function remove_fruit() {
+  if (reset) {
+    //location.reload();
+    List.clear();
+    History = [];
+    Canvas.clear();
+    show_total();
+    order_gray();
+    reset = false;
+    return;
+  }
   if (History.length <= 0) {
     return;
   }
@@ -217,5 +237,6 @@ var audio = new Audio('bell.mp3');
 function bell() {
   if (order_ok) {
     audio.play();
+    reset = true;
   }
 }

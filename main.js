@@ -159,12 +159,16 @@ function show_total() {
   Gui.setList(total + ' RON', li, ml, ttml);
 }
 
+var order_ok = false;
+
 function order_green() {
   document.getElementById('cmd').src = "comanda.png";
+  order_ok = true;
 }
 
 function order_gray() {
   document.getElementById('cmd').src = "comanda_gray.png";
+  order_ok = false;
 }
 
 var History = [];
@@ -205,5 +209,13 @@ function remove_fruit() {
   }
   else {
     order_green();
+  }
+}
+
+var audio = new Audio('bell.mp3');
+
+function bell() {
+  if (order_ok) {
+    audio.play();
   }
 }
